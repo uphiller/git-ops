@@ -13,7 +13,7 @@ spec:
         run: assets-front
     spec:
       containers:
-        - image: uphiller/assets:front
+        - image: uphiller/spring-weekly-test
           name: assets-front
           ports:
             - containerPort: 80
