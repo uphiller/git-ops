@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assets-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: assets-front
+  template:
+    metadata:
+      labels:
+        run: assets-front
+    spec:
+      containers:
+        - image: uphiller/assets:front
+          name: assets-front
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: assets-front
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    run: assets-front
