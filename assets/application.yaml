@@ -16,17 +16,17 @@ spec:
         - image: uphiller/spring-weekly-test
           name: assets-front
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: assets-front
-spec:
+spec:K
   ports:
-    - port: 80
+    - port: 8080
       protocol: TCP
-      targetPort: 80
+      targetPort: 8080
       nodePort: 30007
   selector:
     run: assets-front
