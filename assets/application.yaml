@@ -17,8 +17,6 @@ spec:
           name: assets-front
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -33,3 +31,37 @@ spec:
       nodePort: 30080
   selector:
     run: assets-front
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assets-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: assets-backend
+  template:
+    metadata:
+      labels:
+        run: assets-backend
+    spec:
+      containers:
+        - image: uphiller/assets:backend
+          name: assets-backend
+          ports:
+            - containerPort: 8085
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: assets-front
+spec:
+  type: NodePort
+  ports:
+    - port: 8085
+      protocol: TCP
+      targetPort: 8085
+      nodePort: 30085
+  selector:
+    run: assets-backend
