@@ -13,7 +13,7 @@ spec:
         run: assets-front
     spec:
       containers:
-        - java: uphiller/assets:front
+        - image: uphiller/assets:front
           name: assets-front
           ports:
             - containerPort: 8888
