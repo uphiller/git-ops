@@ -52,7 +52,8 @@ spec:
             backend:
               service:
                 name: assets-front-svc
-                port: 8888
+                port:
+                  number: 8888
 ---
 apiVersion: apps/v1
 kind: Deployment
