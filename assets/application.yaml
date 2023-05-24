@@ -50,7 +50,7 @@ spec:
         run: assets-backend
     spec:
       containers:
-        - image: uphiller/assets:backend-2
+        - image: uphiller/assets
           name: assets-backend
           ports:
             - containerPort: 8085
