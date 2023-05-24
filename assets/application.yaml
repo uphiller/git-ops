@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: assets-front
+  name: assets-front-svc
 spec:
   type: NodePort
   ports:
@@ -34,6 +34,22 @@ spec:
       nodePort: 30080
   selector:
     run: assets-front
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: assets-front-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: assets.battercodelab.com
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: assets-front-svc
+              servicePort: 8888
 ---
 apiVersion: apps/v1
 kind: Deployment
