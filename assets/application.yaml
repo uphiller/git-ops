@@ -41,9 +41,7 @@ metadata:
   name: assets-front-ingress
   namespace: argocd
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: assets.bettercodelab.com
