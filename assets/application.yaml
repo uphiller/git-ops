@@ -49,9 +49,12 @@ spec:
     - host: assets.bettercodelab.com
       http:
         paths:
-          - backend:
-              serviceName: assets-front-svc
-              servicePort: 8888
+          - path: /front
+            pathType: Prefix
+            backend:
+              service:
+                name: assets-front-svc
+                port: 8888
 ---
 apiVersion: apps/v1
 kind: Deployment
