@@ -43,7 +43,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: assets.battercodelab.com
+    - host: assets.bettercodelab.com
     - http:
         paths:
           - path: /
