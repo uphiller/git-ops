@@ -17,7 +17,7 @@ spec:
           name: assets-front
           ports:
             - containerPort: 8888
-      imagePullPolicy: Always
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
 ---
@@ -76,7 +76,7 @@ spec:
           name: assets-backend
           ports:
             - containerPort: 8085
-      imagePullPolicy: Always
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
 ---
